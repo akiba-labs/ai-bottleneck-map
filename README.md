@@ -33,7 +33,7 @@ must pass before deploy.
 
 This is a standard Next.js App Router app. The free [Vercel Hobby](https://vercel.com/docs/accounts/plans/hobby) plan is enough.
 
-1. Push this repo to GitHub (already: `sean0007/ai-bottleneck-map`).
+1. Push this repo to GitHub (already: `akiba-labs/ai-bottleneck-map`).
 2. In [Vercel](https://vercel.com/new), click **Add New… → Project** and **Import** the GitHub repository.
 3. Framework preset: **Next.js**. Build command: `npm run build`. Output: default.
 4. Environment variables (optional):
