@@ -1,5 +1,7 @@
 import { ogSize, renderOgCard } from "@/lib/og";
 
+export const dynamic = "force-static";
+
 export const alt = "Where’s your AI stack most constrained?";
 export const size = ogSize;
 export const contentType = "image/png";

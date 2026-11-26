@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ShareableCard } from "@/components/shareable-card";
 import { getBottleneck } from "@/lib/bottlenecks";
+import { isGithubPages } from "@/lib/hosting";
 import { quizQuestions, resultCopy, scoreQuiz } from "@/lib/quiz";
 
 export function QuizFlow() {
@@ -18,7 +19,7 @@ export function QuizFlow() {
   const [localResult, setLocalResult] = useState(shared);
 
   const done = Boolean(localResult);
-  const path = localResult ? `/quiz?r=${localResult.slug}` : "/quiz";
+  const path = isGithubPages ? "/" : localResult ? `/quiz?r=${localResult.slug}` : "/quiz";
 
   function pick(slug: string) {
     const nextAnswers = [...answers, slug];

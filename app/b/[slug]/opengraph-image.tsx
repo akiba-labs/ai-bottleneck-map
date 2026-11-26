@@ -1,6 +1,9 @@
 import { getBottleneck, getBottleneckSlugs } from "@/lib/bottlenecks";
 import { ogSize, renderOgCard } from "@/lib/og";
 
+export const dynamic = "force-static";
+export const dynamicParams = false;
+
 export const alt = "AI bottleneck node";
 export const size = ogSize;
 export const contentType = "image/png";

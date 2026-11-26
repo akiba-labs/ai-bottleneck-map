@@ -41,6 +41,12 @@ This is a standard Next.js App Router app. The free [Vercel Hobby](https://verce
    - `DIGEST_WEBHOOK_URL` — if set, `POST /api/digest` forwards `{ email, bottleneck, source, receivedAt }` as JSON. If unset, the signup is stubbed and still returns `{ ok: true, stub: true }`.
 5. Deploy. Hobby is free for this traffic pattern; do not add a paid integration for launch.
 
+## GitHub Pages
+
+`npm run build` stays the Vercel app, including API routes. `npm run build:pages` writes a static export to `out/` for https://akiba-labs.github.io/ai-bottleneck-map/. The agent API is omitted from that copy and returns when Vercel hosting is back.
+
+In GitHub: **Settings → Pages → Source: GitHub Actions**. The workflow deploys on push to `main` and on **workflow_dispatch**. Pull requests build only.
+
 ## Digest stub
 
 `POST /api/digest` with `{ "email": "you@example.com", "bottleneck": "memory" }`.
