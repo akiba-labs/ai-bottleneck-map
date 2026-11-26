@@ -2,6 +2,7 @@
 
 import { CopyLink, NativeShare } from "@/components/copy-link";
 import type { Bottleneck } from "@/lib/bottlenecks";
+import { withBasePath } from "@/lib/hosting";
 import { DISCLAIMER_SHORT } from "@/lib/site";
 
 export function ShareableCard({
@@ -16,13 +17,14 @@ export function ShareableCard({
   path: string;
 }) {
   const shareText = `${kicker}\n${headline ?? bottleneck.title}: ${bottleneck.oneLiner}\n\n${DISCLAIMER_SHORT}`;
+  const sharePath = withBasePath(path);
 
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap gap-2">
-        <NativeShare title={`${bottleneck.title} · AI Bottleneck Map`} text={shareText} url={path} />
-        <CopyLink url={path} />
-        <CopyLink url={path} text={shareText} label="Copy summary" />
+        <NativeShare title={`${bottleneck.title} · AI Bottleneck Map`} text={shareText} url={sharePath} />
+        <CopyLink url={sharePath} />
+        <CopyLink url={sharePath} text={shareText} label="Copy summary" />
       </div>
       <article
         className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0c0d12] p-6 shadow-[0_30px_80px_rgba(0,0,0,0.45)] sm:p-8"

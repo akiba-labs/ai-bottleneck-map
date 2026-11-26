@@ -1,6 +1,8 @@
 import { ogSize, renderOgCard } from "@/lib/og";
 import { SITE_TAGLINE } from "@/lib/site";
 
+export const dynamic = "force-static";
+
 export const alt = SITE_TAGLINE;
 export const size = ogSize;
 export const contentType = "image/png";

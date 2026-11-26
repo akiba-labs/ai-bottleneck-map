@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SignupForm } from "@/components/signup-form";
+import { API_PAUSED_NOTE, isGithubPages } from "@/lib/hosting";
 
 export const metadata: Metadata = {
   title: "Free weekly map update",
@@ -18,7 +19,8 @@ export default function DigestPage() {
       </h1>
       <p className="mt-5 text-lg leading-relaxed text-muted">
         When this educational map of AI infrastructure bottlenecks changes, we
-        can send a short note. This page posts JSON to a webhook stub. It is not
+        can send a short note.{" "}
+        {isGithubPages ? API_PAUSED_NOTE : "This page posts JSON to a webhook stub."} It is not
         a paid product, not a chat group, and not a stock-tip list.
       </p>
       <div className="mt-8 rounded-3xl border border-line bg-panel p-6 sm:p-8">

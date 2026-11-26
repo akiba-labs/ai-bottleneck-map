@@ -2,8 +2,16 @@
 
 import { useState, type FormEvent } from "react";
 import { bottlenecks } from "@/lib/bottlenecks";
+import { API_PAUSED_NOTE, isGithubPages } from "@/lib/hosting";
 
 export function SignupForm({ defaultBottleneck }: { defaultBottleneck?: string }) {
+  if (isGithubPages) {
+    return <p className="text-sm leading-relaxed text-muted">{API_PAUSED_NOTE}</p>;
+  }
+  return <SignupFormLive defaultBottleneck={defaultBottleneck} />;
+}
+
+function SignupFormLive({ defaultBottleneck }: { defaultBottleneck?: string }) {
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
   const [message, setMessage] = useState("");
 
